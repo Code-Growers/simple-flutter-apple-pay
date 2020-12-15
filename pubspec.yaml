@@ -20,7 +20,7 @@ flutter:
     platforms:
       android:
         package: codegrowers.app.flutter.apple.simpleflutterapplepay
-        pluginClass: SimpleFlutterApplePayPlugink
+        pluginClass: SimpleFlutterApplePayPlugin
       ios:
         pluginClass: SimpleFlutterApplePayPlugin
   # To add assets to your plugin package, add an assets section, like this:
