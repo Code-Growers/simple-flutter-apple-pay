@@ -11,7 +11,7 @@ public class SimpleFlutterApplePayPlugin implements MethodCallHandler {
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "simple_flutter_apple_pay");
-    channel.setMethodCallHandler(new FlutterApplePayPlugin());
+    channel.setMethodCallHandler(new SimpleFlutterApplePayPlugin());
   }
 
   @Override
