@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * fixed android build
+
+## 0.0.3
+
+* fixed android build
