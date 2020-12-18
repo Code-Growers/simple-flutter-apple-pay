@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * downgraded required ios version
+
+## 0.0.5
+
+* fix builds, fix example
