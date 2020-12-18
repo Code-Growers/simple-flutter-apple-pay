@@ -15,6 +15,14 @@ dependencies:
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
 # The following section is specific to Flutter.
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: codegrowers.app.flutter.apple.simpleflutterapplepay
+        pluginClass: SimpleFlutterApplePayPlugin
+      ios:
+        pluginClass: SimpleFlutterApplePayPlugin
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
