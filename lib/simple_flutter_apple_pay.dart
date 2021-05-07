@@ -2,28 +2,21 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class FlutterApplePay {
   static const MethodChannel _channel =
       const MethodChannel('simple_flutter_apple_pay');
 
   static Future<PaymentResultData> startPayment({
-    @required String countryCode,
-    @required String currencyCode,
+    required String countryCode,
+    required String currencyCode,
     // @required List<PaymentNetwork> paymentNetworks,
     List<PaymentNetwork> paymentNetworks = const [],
-    @required String merchantIdentifier,
+    required String merchantIdentifier,
     bool isPending = false,
-    @required List<PaymentItem> paymentItems,
+    required List<PaymentItem> paymentItems,
   }) async {
-    assert(countryCode != null);
-    assert(currencyCode != null);
-    assert(paymentItems != null);
-    assert(merchantIdentifier != null);
-    assert(paymentItems != null);
-
-    final Map<String, Object> args = <String, dynamic>{
+    final Map<String, Object> args = <String, Object>{
       'paymentNetworks':
           paymentNetworks.map((item) => item.toString().split('.')[1]).toList(),
       'countryCode': countryCode,
@@ -40,7 +33,7 @@ class FlutterApplePay {
     }
   }
 
-  static Future<void> finishPayment({@required PaymentResult result}) async {
+  static Future<void> finishPayment({required PaymentResult result}) async {
     if (result == PaymentResult.success) {
       await _channel.invokeMethod('closeWithSuccess');
     } else {
@@ -50,9 +43,9 @@ class FlutterApplePay {
 }
 
 class PaymentResultData {
-  String error;
-  bool isSuccess;
-  PaymentSuccessResultData resultData;
+  String? error;
+  bool? isSuccess;
+  PaymentSuccessResultData? resultData;
 
   PaymentResultData(dynamic result) {
     Map<String, dynamic> resultJson = Map<String, dynamic>.from(result);
@@ -82,7 +75,7 @@ class PaymentSuccessResultData {
   String transactionIdentifier;
 
   PaymentSuccessResultData(
-      {@required this.paymentData, @required this.transactionIdentifier});
+      {required this.paymentData, required this.transactionIdentifier});
 
   @override
   String toString() {
@@ -96,11 +89,7 @@ class PaymentItem {
   final bool isFinal;
 
   PaymentItem(
-      {@required this.label, @required this.amount, @required this.isFinal}) {
-    assert(this.label != null);
-    assert(this.amount != null);
-    assert(this.isFinal != null);
-  }
+      {required this.label, required this.amount, required this.isFinal});
 
   Map<String, dynamic> _toMap() {
     Map<String, dynamic> map = new Map();

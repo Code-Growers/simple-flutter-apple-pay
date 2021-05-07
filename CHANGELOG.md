@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * fix builds, fix example
+
+## 0.1.0
+
+* null safety

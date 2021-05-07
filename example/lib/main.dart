@@ -80,11 +80,11 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Apple pay example.'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Success payment'),
               onPressed: () => makeSuccessPayment(),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Error payment'),
               onPressed: () => makeErrorPayment(),
             )
