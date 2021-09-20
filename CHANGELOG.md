@@ -22,3 +22,7 @@
 
 * null safety
 * android v2 embeding
+
+## 0.2.0
+
+* migrated to androidX
