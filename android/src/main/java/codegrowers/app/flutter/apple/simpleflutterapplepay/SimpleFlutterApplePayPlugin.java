@@ -7,10 +7,16 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /** FlutterApplePayPlugin */
-public class SimpleFlutterApplePayPlugin implements MethodCallHandler {
+public class SimpleFlutterApplePayPlugin implements FlutterPlugin, MethodCallHandler {
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "simple_flutter_apple_pay");
+    channel.setMethodCallHandler(new SimpleFlutterApplePayPlugin());
+  }
+
+  @Override
+  public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
+    final MethodChannel channel = new MethodChannel(binding.getFlutterEngine().getDartExecutor(), "simple_flutter_apple_pay");
     channel.setMethodCallHandler(new SimpleFlutterApplePayPlugin());
   }
 

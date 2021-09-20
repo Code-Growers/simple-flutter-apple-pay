@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> makeSuccessPayment() async {
-    PaymentResultData result;
+    PaymentResultData? result;
     PaymentItem paymentItems =
         PaymentItem(label: 'Label', amount: 51.0, isFinal: true);
     try {
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> makeErrorPayment() async {
-    PaymentResultData result;
+    PaymentResultData? result;
     PaymentItem paymentItems =
         PaymentItem(label: 'Label', amount: 51.0, isFinal: true);
     try {
@@ -80,11 +80,11 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Apple pay example.'),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Success payment'),
               onPressed: () => makeSuccessPayment(),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Error payment'),
               onPressed: () => makeErrorPayment(),
             )
